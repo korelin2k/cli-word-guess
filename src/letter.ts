@@ -3,7 +3,7 @@ export const Letter = function(character: string) {
     this.character = character;
     this.guessed = false;
 
-    this.retVal = function() {
+    this.retVal = () => {
         if (this.guessed) {
             return this.character;
         } else {
@@ -11,7 +11,7 @@ export const Letter = function(character: string) {
         }
     };
 
-    this.checkVal = function(guess: string) {
+    this.checkVal = (guess: string) => {
         if (this.character === guess) {
             this.guessed = true;
             return true;
