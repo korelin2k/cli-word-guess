@@ -1,12 +1,26 @@
-import { expect } from 'chai';
+import { expect } from "chai";
+import { Letter } from "../src/letter";
 
-const arrayHere: string[] = ["hi", "there"];
-
-describe('Letter Functionality', () => {
-    it('testing out basic functionality', () => {
-        expect(arrayHere[0]).to.equal("hi");
+describe("Letter Functionality", () => {
+    it("should return blank space", () => {
+        const character: string = "c";
+        const letter: any = new Letter(character);
+        expect(letter.retVal()).to.equal("_");
     });
-    it('testing out basic functionality 2', () => {
-        expect(arrayHere[1]).to.equal("there");
+    it("should check letter and return false if not correct", () => {
+        const character: string = "c", guess: string = "d";
+        const letter: any = new Letter(character);
+        expect(letter.checkVal(guess)).to.equal(false);
+    });
+    it("should check letter and return true if correct", () => {
+        const character: string = "c", guess: string = "c";
+        const letter: any = new Letter(character);
+        expect(letter.checkVal(guess)).to.equal(true);
+    });
+    it("should return letter", () => {
+        const character: string = "c", guess: string = "c";
+        const letter: any = new Letter(character);
+        letter.checkVal(guess);
+        expect(letter.retVal()).to.equal("c");
     });
 });
