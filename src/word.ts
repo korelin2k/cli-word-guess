@@ -23,8 +23,11 @@ export const Word = function(word: string) {
 
     this.guessLetter = (character: string) => {
         let i: number = 0;
+        let status: boolean;
         for (i; i < this.wordChoice.length; i++) {
-            this.obWord[i].checkVal(character);
+            status = this.obWord[i].checkVal(character);
         }
+
+        return status;
     };
 };
