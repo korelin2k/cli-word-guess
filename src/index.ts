@@ -1,50 +1,5 @@
 import * as inquirer from "inquirer";
-import { Word } from "./word";
-
-export const Game = function() {
-    this.guessesRemaining = 10;
-    this.selectedWord = "";
-
-    this.guessesLeft = () => {
-        return this.guessesRemaining;
-    };
-
-    this.decrementGuesses = () => {
-        this.guessesRemaining--;
-    };
-
-    this.randomWord = () => {
-        const wordChoices = [
-            "horror",
-            "pitch",
-            "dissolve",
-            "flytrap",
-            "aversion",
-            "propeller",
-            "crusher",
-            "project",
-            "excuse",
-            "cognitive",
-            "disciple",
-            "gargoyle",
-            "blast",
-            "rose",
-            "bliss",
-            "hack",
-            "dangerous",
-        ];
-
-        const randomWord = wordChoices[Math.floor(Math.random() * wordChoices.length)];
-        this.selectedWord = new Word(randomWord);
-        this.selectedWord.init();
-
-        if (this.selectedWord) {
-            return true;
-        } else {
-            return false;
-        }
-    };
-};
+import { Game } from "./game";
 
 // Start the application
 function play() {
@@ -58,15 +13,15 @@ function play() {
         ];
 
         inquirer.prompt(questionType).then((res: inquirer.Answers) => {
-            newGame.selectedWord.guessLetter(res.letterGuess);
+            newGame.selectedWord.guessLetter(res.letterGuess[0]);
 
-            if (newGame.selectedWord.retWord().includes(res.letterGuess)) {
-                console.log("Correct!");
+            if (newGame.selectedWord.retWord().includes(res.letterGuess[0])) {
+                console.log("\x1b[32m", "Correct!\n");
             } else {
                 newGame.decrementGuesses();
-                console.log(`Incorrect - you have ${newGame.guessesLeft()} guesses remaining`);
+                console.log("\x1b[31m", `Incorrect - you have ${newGame.guessesLeft()} guesses remaining\n`);
             }
-            console.log(newGame.selectedWord.retWord().split("").join(" "));
+            console.log("\x1b[0m", newGame.selectedWord.retWord().split("").join(" "));
             play();
         });
     } else if (!newGame.selectedWord.retWord().includes("_")) {
@@ -77,6 +32,7 @@ function play() {
         console.log("How did you even get here?");
     }
 }
+
 const newGame = new Game();
 newGame.randomWord();
 

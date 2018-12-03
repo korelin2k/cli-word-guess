@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { Game } from "../src/index";
+import { Game } from "../src/game";
 
 describe("Game Functionality", () => {
     it("should return the number of guesses left", () => {
