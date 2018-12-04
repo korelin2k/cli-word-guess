@@ -64,7 +64,7 @@ In this case, index calls Game to create everything.
 > Congrats - you won!  
 
 ### Things I Tried:
-1. Leveraged TypeScript again - love it
+1. Leveraged TypeScript again - love it. This time I took it a step further and leveraged classes w/constructor built in and "strict" enforced, which basically denied the use of "any" type... which really defeats the purpose of TypeScript. 
 2. Added mocha & chai unit testing for TDD (yes, actually did my test cases first). Not an overly complex assignment, so there wasn't a lot of tests.
 
 >   Game Functionality  
