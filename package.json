@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prebuild": "rm -rf ../compiled",
+    "prebuild": "rm -rf ../build",
     "build": "tsc -p ./src",
     "pretest": "tslint -c test/tslint.json \"src/*.ts\"",
     "test": "mocha --require ts-node/register test/**/*.ts",
-    "start": "npm install -y && npm run test && npm run build && node compiled/index.js"
+    "start": "npm install -y && npm run test && npm run build && node build/index.js"
   },
   "repository": {
     "type": "git",

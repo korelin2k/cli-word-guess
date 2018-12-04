@@ -1,17 +1,18 @@
 import { Letter } from "./letter";
 
-export const Word = function(word: string) {
-    this.wordChoice = word;
-    this.obWord = [];
+export class Word {
+    public wordChoice: string;
+    public obWord: Letter[] = [];
 
-    this.init = () => {
+    constructor(word: string) {
+        this.wordChoice = word;
         let i: number = 0;
         for (i; i < this.wordChoice.length; i++) {
             this.obWord[i] = new Letter(this.wordChoice[i]);
         }
-    };
+    }
 
-    this.retWord = () => {
+    public retWord() {
         let i: number = 0;
         let currentWord: string = "";
         for (i; i < this.wordChoice.length; i++) {
@@ -19,9 +20,9 @@ export const Word = function(word: string) {
         }
 
         return currentWord;
-    };
+    }
 
-    this.guessLetter = (character: string) => {
+    public guessLetter(character: string) {
         let i: number = 0;
         let status: boolean;
         for (i; i < this.wordChoice.length; i++) {
@@ -29,5 +30,5 @@ export const Word = function(word: string) {
         }
 
         return status;
-    };
-};
+    }
+}

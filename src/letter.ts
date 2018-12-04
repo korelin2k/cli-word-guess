@@ -1,22 +1,27 @@
 // constructor function for creating student objects
-export const Letter = function(character: string) {
-    this.character = character;
-    this.guessed = false;
+export class Letter {
+    public character: string;
+    public guessed: boolean;
 
-    this.retVal = () => {
+    constructor(character: string) {
+        this.character = character;
+        this.guessed = false;
+    }
+
+    public retVal() {
         if (this.guessed) {
             return this.character;
         } else {
             return "_";
         }
-    };
+    }
 
-    this.checkVal = (guess: string) => {
+    public checkVal(guess: string) {
         if (this.character === guess) {
             this.guessed = true;
             return true;
         } else {
             return false;
         }
-    };
-};
+    }
+}

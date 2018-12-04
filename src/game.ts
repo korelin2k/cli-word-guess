@@ -1,18 +1,22 @@
 import { Word } from "./word";
 
-export const Game = function() {
-    this.guessesRemaining = 10;
-    this.selectedWord = "";
+export class Game {
+    public guessesRemaining: number;
+    public selectedWord: Word;
 
-    this.guessesLeft = () => {
+    constructor() {
+        this.guessesRemaining = 10;
+    }
+
+    public guessesLeft() {
         return this.guessesRemaining;
-    };
+    }
 
-    this.decrementGuesses = () => {
+    public decrementGuesses() {
         this.guessesRemaining--;
-    };
+    }
 
-    this.randomWord = () => {
+    public randomWord() {
         const wordChoices = [
             "horror",
             "pitch",
@@ -35,12 +39,11 @@ export const Game = function() {
 
         const randomWord = wordChoices[Math.floor(Math.random() * wordChoices.length)];
         this.selectedWord = new Word(randomWord);
-        this.selectedWord.init();
 
         if (this.selectedWord) {
             return true;
         } else {
             return false;
         }
-    };
-};
+    }
+}

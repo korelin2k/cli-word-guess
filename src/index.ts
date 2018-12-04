@@ -33,7 +33,7 @@ function play() {
     }
 }
 
-const newGame = new Game();
+const newGame: Game = new Game();
 newGame.randomWord();
 
 console.log("Random word has been generated!");
