@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prebuild": "rm -rf ../build",
-    "build": "tsc -p ./src",
+    "build": "gulp --gulpfile src/gulpfile.js",
     "pretest": "tslint -c test/tslint.json \"src/*.ts\"",
     "test": "mocha --require ts-node/register test/**/*.ts",
     "start": "npm install -y && npm run test && npm run build && node build/index.js"
@@ -28,6 +28,8 @@
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.5",
     "chai": "^4.2.0",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^5.0.0",
     "mocha": "^5.2.0",
     "tslint": "^5.11.0",
     "ts-node": "^7.0.1",

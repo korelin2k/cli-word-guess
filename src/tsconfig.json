@@ -11,6 +11,7 @@
     "files": [
         "letter.ts",
         "word.ts",
+        "game.ts",
         "index.ts"
     ]
 }
